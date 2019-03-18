@@ -77,8 +77,8 @@
             ],
             "Subscriptions": [
                 {
-                    "Name": "DevTestTenant1",
-                    "OfferType":  "MS-AZR-0148P",
+                    "Name": "Visual Studio Enterprise – MPN",
+                    "OfferType":  "MS-AZR-0029P",
                     "RoleAssignments":[
 
                     ],

@@ -15,7 +15,7 @@ Import-Module .\Subscriptionator.psm1 -Force
 # New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId $UserObjectId -Scope "/providers/Microsoft.Billing/enrollmentAccounts/$EnrollmentAccountId"
 
 #ensure the Az Context has been set for the tenant
-$TenantId = "1931b7d3-bd07-4b36-9814-adf4ad406860"
+$TenantId = "69b439fc-22ce-4942-8608-6938a8556b7c"
 
 #ensure that you are logged in
 #Connect-AzAccount -TenantId $TenantId
