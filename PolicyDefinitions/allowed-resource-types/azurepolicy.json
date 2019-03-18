@@ -1,1 +1,48 @@
-test
+{
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "allowed-resource-types",
+  "properties": {
+    "displayName": "Allow specific resource types",
+    "description": "Allow specific resource types which have been approved for deployment as documented: https://confluence.devops.lloydsbanking.com/display/PCE/Allowed+Resource+Types",
+    "metadata": {
+      "category": "General"
+    },
+    "mode": "All",
+    "parameters": {
+      "listOfResourceTypesAllowed": {
+        "type": "array",
+        "metadata": {
+          "description": "Type of Azure Resource, such as Microsoft.Resources/subscriptions/resourceGroups",
+          "displayName": "listOfResourceTypesAllowed",
+          "strongType": "resourceTypes"
+        }
+      },
+      "effect": {
+        "type": "string",
+        "metadata": {
+          "displayName": "effect",
+          "description": "Effect of policy, such as audit or deny"
+        },
+        "allowedValues": [
+          "Append",
+          "Audit",
+          "AuditIfNotExists",
+          "Deny",
+          "DeployIfNotExists",
+          "Disabled"
+        ]
+      }
+    },
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "type",
+        "in": "[parameters('listOfResourceTypesAllowed')]"
+        }
+      },
+      "then": {
+      "effect": "[parameters('effect')]"
+      }
+    }
+  }
+}
